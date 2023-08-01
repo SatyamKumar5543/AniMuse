@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "animuse",
+  "version": "1.0.0",
+  "description": "music player",
+  "main": "script.js",
+  "author": "Satyam",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "DenyWarrior"
+  },
+  "keywords": [
+    "anime",
+    "music"
+  ]
+}

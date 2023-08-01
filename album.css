@@ -1,0 +1,587 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+header {
+    position: static;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    background-color: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #ffffff;
+}
+
+.navbar {
+    position: fixed;
+    border-radius: 10px;
+    top: 0;
+    left: 3px;
+    width: 99%;
+    background-color: #0e101a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Search bar */
+
+input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.search-container {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    color: #f20f0f;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: hsl(228, 50%, 56%);
+}
+
+.login img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    background-color: hsl(228, 50%, 56%);
+    border-radius: 50px;
+}
+
+main {
+    height: 100vh;
+    margin-left: 16.6vw;
+    margin-top: 80px;
+}
+
+.playlist-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding-bottom: 80px;
+    position: relative;
+    z-index: 0;
+}
+
+.playlist-container::-webkit-scrollbar {
+    width: 0;
+    /*hide scrollbar*/
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.playlist-item:hover {
+    background-color: #0f0f0f;
+}
+
+.song-image {
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.song-details {
+    color: #fff;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.song-title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.song-artist {
+    margin: 0;
+    color: gray;
+    font-size: 14px;
+}
+
+/*Navigation Bar*/
+
+.sidebar {
+    position: fixed;
+    top: 80px;
+    width: 16.6vw;
+    left: 0;
+    bottom: 0;
+    background-color: #252525;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.sidebar #icons {
+    margin-right: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    font-size: large;
+    padding: 15px;
+}
+
+.sidebar li:hover {
+    background-color: #0f0f0f;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #cbcbcb;
+}
+
+.sidebar a:hover {
+    color: rgb(154, 248, 248);
+}
+
+/*Bottom Section*/
+
+.bottom {
+    position: fixed;
+    height: 80px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    display: none;
+    align-items: center;
+    flex-direction: row;
+    z-index: 1;
+}
+
+#bar {
+    position: fixed;
+    margin-left: 16.6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#control {
+    margin-left: 30px;
+}
+
+.current-song-container {
+    display: flex;
+    width: 16.6vw;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    color: #fff;
+}
+
+.current-song-container .song-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
+}
+
+.current-song-container .song-details {
+    flex-grow: 1;
+}
+
+.current-song-container .song-title {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.current-song-container .song-artist {
+    margin: 0;
+    color: gray;
+    font-size: 14px;
+}
+
+/*Progress Bar*/
+
+.progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    margin: 10px;
+}
+
+#progressBar {
+    width: 100%;
+    height: 3px;
+    margin-left: 12px;
+    margin-right: 12px;
+    background-color: #888;
+}
+
+#progressBar:hover {
+    color: green;
+}
+
+.progress-bar-wrapper input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.progress-bar-wrapper input[type="range"]::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.progress-bar-wrapper input[type="range"]::-webkit-slider-thumb {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.progress-bar-wrapper:hover input[type="range"]::-webkit-slider-thumb {
+    opacity: 1;
+}
+
+#currentTime,
+#totalTime {
+    color: #fff;
+    font-size: 12px;
+}
+
+/*Icons*/
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons i {
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #cacaca;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#control.icons i {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.icons i:hover {
+    color: #fff;
+}
+
+#repeatIcon.active {
+    color: green;
+}
+
+/* Playlist Item Number */
+
+.item-number {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.item-number:before {
+    content: attr(data-number);
+}
+
+.playlist-item:hover .item-number:before {
+    font-family: "FontAwesome";
+    content: "\f04b";
+}
+
+.playlist-item.playing .item-number:before {
+    font-family: "FontAwesome";
+    content: "\f04c";
+}
+
+.playlist-item.playing:hover .item-number:before {
+    font-family: "FontAwesome";
+    content: "\f04b";
+}
+
+.playlist-item.paused .item-number:before {
+    font-family: "FontAwesome";
+    content: "\f04b";
+}
+
+.playlist-item.paused .song-title,
+.playlist-item.playing .song-title {
+    color: green;
+}
+
+.playlist-item.paused .item-number,
+.playlist-item.playing .item-number {
+    color: green;
+}
+
+/*volume slider*/
+#volumeSliderContainer {
+    display: none;
+    position: absolute;
+    top: -70px;
+    left: -50px;
+    width: 200px;
+    z-index: 1;
+}
+
+#volumeSliderContainer input[type="range"] {
+    width: 100%;
+    height: 100%;
+    writing-mode: bt-lr;
+    /* Rotates the slider vertically */
+    transform: rotate(270deg);
+    direction: rtl;
+    appearance: none;
+    background-color: transparent;
+    outline: none;
+}
+
+#volumeSliderContainer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#volumeSliderContainer input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.fa-heart {
+    color: #ccc;
+}
+
+.fa-solid.fa-heart {
+    color: red;
+}
+
+.fa-solid.fa-heart:hover {
+    color: red;
+}
+
+/* Add to playlist */
+.ellipsis-icon {
+    position: relative;
+}
+
+.ellipsis-icon i {
+    cursor: pointer;
+}
+
+.dropdown-list {
+    position: absolute;
+    bottom: 30px;
+    /* Adjust this value to position the list as desired */
+    right: 10px;
+    width: 150px;
+    max-height: 131px;
+    background-color: #252525;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+    overflow-y: auto;
+}
+
+.dropdown-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background-color: #ffffff;
+}
+
+.dropdown-list span {
+    display: block;
+    padding: 7px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown-list span:hover {
+    background-color: #0f0f0f;
+}
+
+/* Show the dropdown list when the ellipsis icon is clicked */
+.ellipsis-icon.show-dropdown .dropdown-list {
+    display: block;
+}
+
+#control #plusIcon {
+    padding: 0px;
+    margin: 0px;
+    margin-right: 3px;
+}
+
+/*create playlist*/
+.popup-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+#playlistNameInput {
+    width: 95%;
+    padding: 8px;
+    font-size: larger;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #0e101a;
+    color: #fff;
+}
+
+/* CSS */
+button {
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button:not(:disabled):hover,
+button:not(:disabled):focus {
+    outline: 0;
+    background: #f4e603;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
+}
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#popupTop{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,278 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    background-color: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    position: fixed;
+    border-radius: 10px;
+    top: 0;
+    left: 3px;
+    width: 99%;
+    background-color: #0e101a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Search bar */
+
+input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.search-container {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    color: #f20f0f;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: hsl(228, 50%, 56%);
+}
+
+.login img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    background-color: hsl(228, 50%, 56%);
+    border-radius: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+a:visited {
+    text-decoration: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 80px;
+    width: 16.6vw;
+    left: 0;
+    bottom: 0;
+    background-color: #252525;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.sidebar #icons {
+    margin-right: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    font-size: large;
+    padding: 15px;
+}
+
+.sidebar li:hover {
+    background-color:#0f0f0f;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #cbcbcb;
+}
+
+.sidebar a:hover {
+    color:rgb(154, 248, 248);
+}
+
+.container {
+    max-width: calc(86vw - 40px);
+    margin-left: 16vw;
+    padding: 10px;
+    color: #ffffff;
+    position: relative;
+}
+
+#CAnime{
+    margin-top: 60px;
+}
+
+.heading {
+    position: relative;
+    margin-left: 50px;
+}
+
+.content {
+    position: relative;
+}
+
+.albums-container {
+    display: grid;
+    grid-auto-flow: column;
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow-x: scroll;
+    padding-left: 10px;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.albums-container::-webkit-scrollbar {
+    width: 0px;
+}
+
+.album-card {
+    background-color: #0c0c0c;
+    padding: 10px;
+    text-align: center;
+    flex: 0 0 auto;
+    width: 170px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-bottom: 3px;
+}
+
+.album-card:hover {
+    background-color: #272323;
+    z-index: 2;
+}
+
+.album-card:not(:hover) {
+    transition-duration: 0.3s;
+}
+
+.album-card img {
+    max-width: 100%;
+    height: 150px;
+    width: 150px;
+    border-radius: 8px;
+}
+
+#Artist img {
+    border-radius: 50%;
+}
+
+/* Styles for left and right icons */
+
+.container:hover .icon {
+    display: flex;
+    opacity: 1;
+}
+
+.icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    margin-top: 75px;
+    position: absolute;
+    top: 0;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+}
+
+#left-icon-Anime {
+    left: 0;
+}
+
+#right-icon-Anime {
+    right: 0;
+}
+
+#left-icon-Artist {
+    left: 0;
+}
+
+#right-icon-Artist {
+    right: 0;
+}
+
+#left-icon-Anime:hover,
+#right-icon-Anime:hover,
+#left-icon-Artist:hover,
+#right-icon-Artist:hover {
+    color: red;
+    opacity: 0.8;
+}
+
+#left-icon-Anime i,
+#right-icon-Anime i,
+#left-icon-Artist i,
+#right-icon-Artist i {
+    font-size: 20px;
+}
