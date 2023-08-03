@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AniMuse</title>
+    <link rel="stylesheet" href="MyPlaylist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="index.html" class="home">
+            <div class="logo">
+                <img src="Images/logo.jpg" alt="AniMuse Logo">
+                <h1>AniMuse</h1>
+            </div>
+        </a>
+        <div class="search-container">
+            <input type="text" name="q" class="search-input" placeholder="Search Song">
+            <button type="submit" class="search-button"><i class="fa-solid fa-search"></i></button>
+        </div>
+
+        <div class="login">
+            <a href="#">
+                <img src="Images/login.png" alt="Login Logo">
+            </a>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+          <a href="index.html"><li><i class="fa fa-home" id="icons"></i>Home</li></a>
+          <a href="MyPlaylist.html"><li><i class="fa-solid fa-bars-staggered" id="icons"></i>My Playlists</li></a>
+          <a href="Favorites.html"><li><i class="fa-regular fa-heart" id="icons"></i>Favorites</li></a>
+        </ul>
+    </div>
+
+    <div class="container" id="CAnime">
+        <div class="heading">
+            <h2>My Playlists</h2>
+        </div>
+        <div class="content">
+            <div class="albums-container" id="albumsContainer">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/f97854ae5b.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="MyPlaylist.js"></script>
+</body>
+
+</html>

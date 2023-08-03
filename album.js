@@ -553,6 +553,7 @@ async function createNewPlaylist() {
       },
       body: JSON.stringify({
         playlistName: playlistName,
+        imagePath: currentSongimagePath,
       }),
     });
 

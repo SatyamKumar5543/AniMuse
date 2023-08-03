@@ -206,8 +206,9 @@ app.post('/api/addToCollection/:collectionName', async (req, res) => {
 
 // Create a schema for the ListOfPlaylist collection
 const ListOfPlaylistSchema = new mongoose.Schema({
-  id:ObjectId,
-  name: String
+  id: ObjectId,
+  name: String,
+  imagePath: String
 });
 
 const ListOfPlaylist = mongoose.model('ListOfPlaylist', ListOfPlaylistSchema, 'ListOfPlaylist');
@@ -215,7 +216,7 @@ const ListOfPlaylist = mongoose.model('ListOfPlaylist', ListOfPlaylistSchema, 'L
 // Route to create a new playlist collection
 app.post('/api/createPlaylistCollection', async (req, res) => {
   try {
-    const { playlistName } = req.body;
+    const { playlistName, imagePath } = req.body;
 
     // Check if the collection already exists
     const existingCollection = await mongoose.connection.db.listCollections({ name: playlistName }).next();
@@ -229,13 +230,39 @@ app.post('/api/createPlaylistCollection', async (req, res) => {
     await mongoose.connection.db.createCollection(playlistName);
 
     // Add the playlist name to the ListOfPlaylist collection
-    await ListOfPlaylist.create({ name: playlistName });
+    await ListOfPlaylist.create({ name: playlistName, imagePath: imagePath.toString() });
 
     // Return success response
     res.status(200).json({ message: 'New playlist collection created successfully' });
   } catch (error) {
     console.error('Failed to create playlist collection:', error);
     res.status(500).json({ error: 'Failed to create playlist collection' });
+  }
+});
+
+app.get('/api/playlists', async (req, res) => {
+  try {
+    const playlists = await ListOfPlaylist.find().exec();
+    res.json(playlists.map(playlist => ({ name: playlist.name, imagePath: playlist.imagePath })));
+  } catch (error) {
+    console.error('Failed to retrieve playlist data', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist data' });
+  }
+});
+
+app.get('/api/playlistItems/:playlistName', async (req, res) => {
+  try {
+    const playlistName = req.params.playlistName;
+
+    const playlist = await ListOfPlaylist.findOne({ name: playlistName }).exec();
+    if (!playlist) {
+      return res.status(404).json({ error: 'Playlist not found' });
+    }
+    const playlistItems = await playlist.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
   }
 });
 

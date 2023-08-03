@@ -78,9 +78,23 @@
           <div id="volumeSliderContainer">
             <input type="range" id="volumeSlider" min="0" max="100" value="100">
           </div>
-          <i class="fa-solid fa-ellipsis"></i>
+          <div class="ellipsis-icon">
+            <i class="fa-solid fa-ellipsis-v"></i>
+            <div class="dropdown-list" id="dropdownList">
+              <!--dynamic list items-->
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="popup-container" id="popupContainer">
+    <div class="popup" id="popup">
+      <i class="fa-solid fa-xmark" id="closeButton" onclick="hidePopup()"></i>
+      <h3>Enter Playlist Name</h3>
+      <input type="text" id="playlistNameInput">
+      <button class="button" role="button" id="createPlaylistButton">Save Playlist</button>
     </div>
   </div>
 
