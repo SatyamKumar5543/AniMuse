@@ -12,9 +12,9 @@ async function fetchPlaylistData() {
 }
 
 async function populateAlbums() {
-    console.log('Populating albums...'); // Add this line
-    const playlistData = await fetchPlaylistData();
-    console.log('Fetched playlist data:', playlistData);
+  console.log('Populating albums...'); // Add this line
+  const playlistData = await fetchPlaylistData();
+  console.log('Fetched playlist data:', playlistData);
 
   if (playlistData.length === 0) {
     console.log('No playlist data available.');
@@ -25,8 +25,7 @@ async function populateAlbums() {
 
   playlistData.forEach((playlist) => {
     const albumCard = document.createElement('a');
-    albumCard.href = 'Playlist.html'; // Assuming the HTML file is named based on playlist name
-    albumCard.onclick = "populatePlaylistItems('${playlist.name}')'"
+    albumCard.href = 'Playlist.html'
     albumCard.className = 'album-card';
 
     const albumImage = document.createElement('img');
@@ -40,6 +39,12 @@ async function populateAlbums() {
     albumCard.appendChild(albumName);
 
     albumsContainer.appendChild(albumCard);
+
+    albumCard.addEventListener('click', (event) => {
+      event.preventDefault();
+      const playlistName = playlist.name;
+      window.location.href = `Playlist.html?playlist=${encodeURIComponent(playlistName)}`;
+    });    
   });
 }
 

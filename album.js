@@ -93,12 +93,12 @@ function playSong(songFile, playlistItem, index) {
       </div>
     `;
 
-
     currentSongTitle = songTitle;
     currentSongArtist = songArtist;
     currentSongimagePath = songImage;
     currentSongfilePath = songFile;
   }
+  checkFavorite();
 }
 
 // Function to toggle play/pause state
@@ -130,10 +130,10 @@ function updatePlayPauseIcon() {
   }
 }
 
-// Update the song title
-audioPlayer.addEventListener('loadedmetadata', function () {
-  songTitle.textContent = audioPlayer.src.split('/').pop();
-});
+// // Update the song title
+// audioPlayer.addEventListener('loadedmetadata', function () {
+//   songTitle.textContent = audioPlayer.src.split('/').pop();
+// });
 
 // Update the play/pause icon
 audioPlayer.addEventListener('play', function () {
@@ -224,10 +224,6 @@ audioPlayer.addEventListener('ended', function () {
   playNext();
 });
 
-// event listener to the audio player for song change
-audioPlayer.addEventListener('play', checkFavorite);
-
-
 // Event listener for the keydown event
 document.addEventListener('keydown', function (event) {
   // Check if the spacebar (key code 32) or enter (key code 13) is pressed
@@ -278,7 +274,6 @@ fetch('http://127.0.0.1:3000/favorites', {
 
 // Function to check if the current playing song is in favorites
 async function checkFavorite() {
-  // Get the current song details
 
   console.log('Current Song:', currentSongTitle, currentSongArtist);
 
@@ -393,7 +388,7 @@ async function addToFavorites(title, artist, filePath, imagePath) {
 // Function to remove the song details from the Favorites collection
 async function removeFromFavorites(title, artist, filePath, imagePath) {
   try {
-    var response = await fetch('http://localhost:3000/favorites/remove', {
+    var response = await fetch('http://127.0.0.1:3000/favorites/remove', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -415,9 +410,6 @@ async function removeFromFavorites(title, artist, filePath, imagePath) {
     console.error('Failed to remove song from favorites:', error);
   }
 }
-
-// Call checkFavorite function when the page loads to initialize the heart icon
-checkFavorite();
 
 // Add an event listener to the heart icon for adding/removing from favorites
 document.getElementById('heartIcon').addEventListener('click', toggleFavorite);
@@ -442,7 +434,6 @@ function populateDropdown() {
           createNewPlaylist(playlistName);
         }
       });
-
 
       dropdownList.appendChild(createPlaylistOption);
 
@@ -522,8 +513,6 @@ document.addEventListener('click', function (event) {
   }
 });
 
-// JavaScript to show and hide the popup
-
 // Function to show the popup
 function showPopup() {
   const popupContainer = document.getElementById('popupContainer');
@@ -578,7 +567,9 @@ async function createNewPlaylist() {
 
 // Add a click event listener to the "Create Playlist" option
 const createPlaylistButton = document.getElementById('createPlaylistButton');
-createPlaylistButton.addEventListener('click', createNewPlaylist);
+createPlaylistButton.addEventListener('click', () => {
+  createNewPlaylist();
+});
 
 // Add a click event listener to the document to hide the popup when clicking outside of it
 document.addEventListener('click', (event) => {

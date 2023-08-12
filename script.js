@@ -33,3 +33,4 @@ rightIconAnime.addEventListener('click', scrollRightAnime);
 // Add click event listeners to the left and right icons for Artist albums container
 leftIconArtist.addEventListener('click', scrollLeftArtist);
 rightIconArtist.addEventListener('click', scrollRightArtist);
+

@@ -96,7 +96,6 @@ const VinlandSaga = mongoose.model('VinlandSaga', Schema, 'VinlandSaga');
 
 const YourName = mongoose.model('YourName', Schema, 'YourName');
 
-
 // Route to retrieve playlist items from the "DemonSlayer" collection
 app.get('/favorite', async (req, res) => {
   try {
@@ -253,18 +252,22 @@ app.get('/api/playlists', async (req, res) => {
 app.get('/api/playlistItems/:playlistName', async (req, res) => {
   try {
     const playlistName = req.params.playlistName;
-
     const playlist = await ListOfPlaylist.findOne({ name: playlistName }).exec();
     if (!playlist) {
       return res.status(404).json({ error: 'Playlist not found' });
     }
-    const playlistItems = await playlist.find().exec();
+
+    // Assuming you have a separate collection for playlist items with a schema named PlaylistItem
+    const PlaylistItem = mongoose.model(playlistName, Schema, playlistName);
+
+    const playlistItems = await PlaylistItem.find().exec();
     res.json(playlistItems);
   } catch (error) {
     console.error('Failed to retrieve playlist items', error);
     res.status(500).json({ error: 'Failed to retrieve playlist items' });
   }
 });
+
 
 // Start the server
 app.listen(3000, () => {
