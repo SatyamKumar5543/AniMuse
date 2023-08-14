@@ -8,12 +8,12 @@ body {
 header {
     position: static;
     border-radius: 10px;
-    margin: 5px;
+    margin: 3px;
     background-color: #333;
     padding: 20px;
     color: #fff;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 a {
@@ -44,6 +44,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     padding: 5px;
     z-index: 100;
+    margin-bottom: 0px;
 }
 
 .logo {
@@ -116,8 +117,41 @@ input {
 main {
     height: 100vh;
     margin-left: 16.6vw;
-    margin-top: 80px;
+    margin-top: 75px;
 }
+
+/* Add these styles to your existing CSS file or create a new one */
+
+#albumInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#albumImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+#albumDetails {
+    flex: 1;
+}
+
+#albumName {
+    font-size: 24px;
+    margin: 0;
+}
+
+#noOfSongs {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Add any additional styles or adjustments as needed */
+
+
 
 .playlist-container {
     margin-left: 10px;
@@ -179,7 +213,7 @@ main {
 
 .sidebar {
     position: fixed;
-    top: 80px;
+    top: 75px;
     width: 16.6vw;
     left: 0;
     bottom: 0;
@@ -581,7 +615,7 @@ button:not(:disabled):focus {
     cursor: pointer;
 }
 
-#popupTop{
+#popupTop {
     display: flex;
     flex-direction: row;
 }

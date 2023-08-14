@@ -3,6 +3,7 @@ var playPauseIcon = document.getElementById('playPauseIcon');
 var songTitle = document.getElementById('songTitle');
 var progressBar = document.getElementById('progressBar');
 var playlistItems = Array.from(document.querySelectorAll('.playlist-item'));
+console.log(playlistItems);
 var currentIndex = -1; // Track the current index of the playlist item
 var bottomDivision = document.querySelector('.bottom');
 var currentTime = document.getElementById('currentTime');

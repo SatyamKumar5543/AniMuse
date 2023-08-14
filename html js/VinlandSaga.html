@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Playlist of Songs</title>
+  <link rel="stylesheet" type="text/css" href="album.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-/fZ1Y9pVMeB+A7qGrt2/JfGR8ij6vtjtyJ3nhqX5KuL/3spgChuB5Tq4+Q3OVeGRweztn4KvYtFbzP0Lv3qxgA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="VinlandSaga.js"></script>
+
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="index.html">
+      <div class="logo">
+        <img src="Images/logo.jpg" alt="AniMuse Logo">
+        <h1>AniMuse</h1>
+      </div>
+    </a>
+    <div class="search-container">
+      <input type="text" name="q" class="search-input" placeholder="Search Song">
+      <a href="Search.html">
+        <button type="submit" class="search-button"><i class="fa-solid fa-search"></i></button>
+      </a>
+    </div>
+
+    <div class="login">
+      <a href="#">
+        <img src="Images/login.png" alt="Login Logo">
+      </a>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <ul>
+      <a href="index.html"><li><i class="fa fa-home" id="icons"></i>Home</li></a>
+      <a href="#"><li><i class="fa-solid fa-bars-staggered" id="icons"></i>My Playlists</li></a>
+      <a href="Favorites.html"><li><i class="fa-regular fa-heart" id="icons"></i>Favorites</li></a>
+    </ul>
+  </div>
+
+  <main>
+    <header>
+      <h1>Vinland Saga</h1>
+    </header>
+    <div class="playlist-container">
+      <div class="playlist" id="playlist">
+
+        <!-- Add more playlist items as needed -->
+      </div>
+    </div>
+  </main>
+
+  <audio id="audioPlayer"></audio>
+  <div class="bottom">
+    <div id="currentSongContainer" class="current-song-container">
+      <!-- Current song details will be displayed here -->
+    </div>
+
+    <div id="bar">
+      <div class="icons">
+        <i id="sufflePlaylist" class="fa-solid fa-shuffle" onclick=sufflePlaylist()></i>
+        <i id="previousIcon" class="fas fa fa-step-backward" onclick="playPrevious()"></i>
+        <i id="playPauseIcon" class="fa fa-play" onclick="togglePlayPause()"></i>
+        <i id="nextIcon" class="fas fa fa-step-forward" onclick="playNext()"></i>
+        <i id="repeatIcon" class="fa-solid fa-repeat" onclick="toggleRepeat()"></i>
+
+      </div>
+      <div class="progress-bar-wrapper">
+        <div id="currentTime">00:00</div>
+        <input type="range" name="progressBar" id="progressBar" min="0" value="0" max="100">
+        <div id="totalTime">00:00</div>
+        <div id="control" class="icons">
+          <div id="heartIconContainer">
+            <i id="heartIcon" class="fa-regular fa-heart heart-icon"></i>
+          </div>
+          <i id="volumeIcon" class="fa-solid fa-volume-high"></i>
+          <div id="volumeSliderContainer">
+            <input type="range" id="volumeSlider" min="0" max="100" value="100">
+          </div>
+          <div class="ellipsis-icon">
+            <i class="fa-solid fa-ellipsis-v"></i>
+            <div class="dropdown-list" id="dropdownList">
+              <!--dynamic list items-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-container" id="popupContainer">
+    <div class="popup" id="popup">
+      <i class="fa-solid fa-xmark" id="closeButton" onclick="hidePopup()"></i>
+      <h3>Enter Playlist Name</h3>
+      <input type="text" id="playlistNameInput">
+      <button class="button" role="button" id="createPlaylistButton">Save Playlist</button>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/f97854ae5b.js" crossorigin="anonymous"></script>
+  <script src="album.js"></script>
+
+</body>
+
+</html>

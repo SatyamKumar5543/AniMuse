@@ -1,7 +1,15 @@
 fetch('http://127.0.0.1:3000/favorite')
   .then(response => response.json())
   .then(data => {
-    playlistItems = Array.isArray(data) ? data : [];
+    const albumInfo = data[0]; // Assuming album info is at the first index
+    const albumImage = document.getElementById('albumImage');
+    const albumName = document.getElementById('albumName');
+    const noOfSongs = document.getElementById('noOfSongs');
+    // Display album information in the header
+    albumImage.src = albumInfo.imagePath;
+    albumName.textContent = albumInfo.albumName;
+
+    playlistItems = Array.isArray(data) ? data.slice(1) : [];
     // Loop through the playlist items and display them in HTML
     const playlist = document.getElementById('playlist');
     playlistItems.forEach((item, index) => {
@@ -39,5 +47,7 @@ fetch('http://127.0.0.1:3000/favorite')
 
     });
     console.log(playlistItems);
+    noOfSongs.textContent = `${playlistItems.length} Songs`;
+
   })
   .catch(error => console.error('Failed to retrieve playlist items', error));

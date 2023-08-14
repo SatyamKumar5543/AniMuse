@@ -96,6 +96,13 @@ const VinlandSaga = mongoose.model('VinlandSaga', Schema, 'VinlandSaga');
 
 const YourName = mongoose.model('YourName', Schema, 'YourName');
 
+const AttackOnTitan = mongoose.model('AttackOnTitan', Schema, 'AttackOnTitan');
+
+const WeatheringWithYou = mongoose.model('WeatheringWithYou', Schema, 'WeatheringWithYou');
+
+const Suzume = mongoose.model('Suzume', Schema, 'Suzume');
+
+
 // Route to retrieve playlist items from the "DemonSlayer" collection
 app.get('/favorite', async (req, res) => {
   try {
@@ -129,7 +136,7 @@ app.get('/vinlandSaga', async (req, res) => {
   }
 });
 
-// Route to retrieve playlist items from the "DemonSlayer" collection
+// Route to retrieve playlist items from the "YourName" collection
 app.get('/yourName', async (req, res) => {
   try {
     const playlistItems = await YourName.find().exec();
@@ -140,6 +147,35 @@ app.get('/yourName', async (req, res) => {
   }
 });
 
+app.get('/attackOnTitan', async (req, res) => {
+  try {
+    const playlistItems = await AttackOnTitan.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/weatheringWithYou', async (req, res) => {
+  try {
+    const playlistItems = await WeatheringWithYou.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/suzume', async (req, res) => {
+  try {
+    const playlistItems = await Suzume.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
 
 let collections = {};
 
