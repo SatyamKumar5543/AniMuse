@@ -120,8 +120,6 @@ main {
     margin-top: 75px;
 }
 
-/* Add these styles to your existing CSS file or create a new one */
-
 #albumInfo {
     display: flex;
     align-items: center;
@@ -149,10 +147,6 @@ main {
     margin: 5px 0;
 }
 
-/* Add any additional styles or adjustments as needed */
-
-
-
 .playlist-container {
     margin-left: 10px;
     margin-right: 10px;
@@ -165,7 +159,6 @@ main {
 
 .playlist-container::-webkit-scrollbar {
     width: 0;
-    /*hide scrollbar*/
 }
 
 .playlist {
@@ -267,7 +260,8 @@ main {
 
 #bar {
     position: fixed;
-    margin-left: 16.6vw;
+    left: 16.6vw;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -299,14 +293,14 @@ main {
 
 .current-song-container .song-title {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     color: #fff;
 }
 
 .current-song-container .song-artist {
     margin: 0;
     color: gray;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /*Progress Bar*/

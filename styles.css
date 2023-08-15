@@ -205,6 +205,13 @@ a:visited {
     padding-bottom: 3px;
 }
 
+.album-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
 .album-card:hover {
     background-color: #272323;
     z-index: 2;
