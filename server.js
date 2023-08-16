@@ -91,17 +91,17 @@ app.post('/favorites/remove', async (req, res) => {
 });
 
 const DemonSlayer = mongoose.model('DemonSlayer', Schema, 'DemonSlayer');
-
 const VinlandSaga = mongoose.model('VinlandSaga', Schema, 'VinlandSaga');
-
 const YourName = mongoose.model('YourName', Schema, 'YourName');
-
 const AttackOnTitan = mongoose.model('AttackOnTitan', Schema, 'AttackOnTitan');
-
 const WeatheringWithYou = mongoose.model('WeatheringWithYou', Schema, 'WeatheringWithYou');
-
 const Suzume = mongoose.model('Suzume', Schema, 'Suzume');
-
+const LiSA = mongoose.model('LiSA', Schema, 'LiSA');
+const Aimer = mongoose.model('Aimer', Schema, 'Aimer');
+const ManWithMission = mongoose.model('ManWithMission', Schema, 'ManWithMission');
+const HiroyukiSawano = mongoose.model('HiroyukiSawano', Schema, 'HiroyukiSawano');
+const Radwimps = mongoose.model('Radwimps', Schema, 'Radwimps');
+const Milet = mongoose.model('Milet', Schema, 'Milet');
 
 // Route to retrieve playlist items from the "DemonSlayer" collection
 app.get('/favorite', async (req, res) => {
@@ -114,7 +114,7 @@ app.get('/favorite', async (req, res) => {
   }
 });
 
-// Route to retrieve playlist items from the "DemonSlayer" collection
+// Route to retrieve playlist items from the collections
 app.get('/demonSlayer', async (req, res) => {
   try {
     const playlistItems = await DemonSlayer.find().exec();
@@ -125,7 +125,6 @@ app.get('/demonSlayer', async (req, res) => {
   }
 });
 
-// Route to retrieve items from the "VinlandSaga" collection
 app.get('/vinlandSaga', async (req, res) => {
   try {
     const items = await VinlandSaga.find().exec();
@@ -136,7 +135,6 @@ app.get('/vinlandSaga', async (req, res) => {
   }
 });
 
-// Route to retrieve playlist items from the "YourName" collection
 app.get('/yourName', async (req, res) => {
   try {
     const playlistItems = await YourName.find().exec();
@@ -170,6 +168,66 @@ app.get('/weatheringWithYou', async (req, res) => {
 app.get('/suzume', async (req, res) => {
   try {
     const playlistItems = await Suzume.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/liSA', async (req, res) => {
+  try {
+    const playlistItems = await LiSA.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/aimer', async (req, res) => {
+  try {
+    const playlistItems = await Aimer.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/manWithMission', async (req, res) => {
+  try {
+    const playlistItems = await ManWithMission.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/radwimps', async (req, res) => {
+  try {
+    const playlistItems = await Radwimps.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/milet', async (req, res) => {
+  try {
+    const playlistItems = await Milet.find().exec();
+    res.json(playlistItems);
+  } catch (error) {
+    console.error('Failed to retrieve playlist items', error);
+    res.status(500).json({ error: 'Failed to retrieve playlist items' });
+  }
+});
+
+app.get('/hiroyukiSawano', async (req, res) => {
+  try {
+    const playlistItems = await HiroyukiSawano.find().exec();
     res.json(playlistItems);
   } catch (error) {
     console.error('Failed to retrieve playlist items', error);
